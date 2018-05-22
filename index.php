@@ -9,7 +9,6 @@ if (isset($_POST['submit'])) {
     $file = fopen($_POST['file'], "w");
     fwrite($file, $_POST['content']);
     fclose($file);
-    echo 'jioef';
 }
 foreach ($objects as $name => $object) :
     ?>
