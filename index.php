@@ -9,8 +9,8 @@ if (isset($_POST['submit'])) {
     $file = fopen($_POST['file'], "w");
     fwrite($file, $_POST['content']);
     fclose($file);
+    echo 'jioef';
 }
-
 foreach ($objects as $name => $object) :
     ?>
     <ul>
@@ -25,7 +25,7 @@ foreach ($objects as $name => $object) :
         </li>
     </ul>
 <?php endforeach; ?>
-<?php if (isset($_GET['f'])) : ?>
+<?php if (isset($_GET['f']) AND in_array(mime_content_type($_GET['f']),['text/plain', 'text/html'] )) : ?>
     <form action="index.php" method="post">
         <textarea name="content" cols="105" rows="15"><?= file_get_contents($_GET['f']) ?></textarea>
         <input type="hidden" name="file" value="<?= $_GET['f'] ?>">
