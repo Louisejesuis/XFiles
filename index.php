@@ -5,8 +5,8 @@ $objects = new RecursiveIteratorIterator
 (new RecursiveDirectoryIterator($path, RecursiveDirectoryIterator::SKIP_DOTS),
     RecursiveIteratorIterator::SELF_FIRST);
 
-if (isset($_POST['submit'])) {
-    $file = fopen($_POST['files'], "w");
+if (isset($_POST['submit']) AND isset($_POST['file'])) {
+    $file = fopen($_POST['file'], "w");
     fwrite($file, $_POST['content']);
     fclose($file);
 }
