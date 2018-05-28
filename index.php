@@ -6,7 +6,7 @@ $objects = new RecursiveIteratorIterator
     RecursiveIteratorIterator::SELF_FIRST);
 
 if (isset($_POST['submit'])) {
-    $file = fopen($_POST['file'], "w");
+    $file = fopen($_POST['files'], "w");
     fwrite($file, $_POST['content']);
     fclose($file);
 }
